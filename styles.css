@@ -1,0 +1,70 @@
+@import url("https://fonts.google.com/specimen/Space+Grotesk");
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("https://fonts.google.com/specimen/Space+Grotesk");
+}
+body {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.top-container {
+  width: 100%;
+  height: 285px;
+  background-image: url("images/bg-main-mobile.png");
+  background-size: 100% 240px;
+  background-repeat: no-repeat;
+}
+.top-container .front-card {
+  position: relative;
+  top: 128px;
+  left: 15px;
+  height: 158px;
+  width: 285px;
+  z-index: 1;
+}
+.top-container .front-card #card-logo {
+  position: absolute;
+  left: 15px;
+  top: 20px;
+  height: 30px;
+  width: 55px;
+  z-index: 2;
+}
+.top-container .front-card img {
+  height: 158px;
+  width: 285px;
+}
+.top-container .back-card {
+  position: relative;
+  top: -120px;
+  left: 60px;
+  height: 158px;
+  width: 285px;
+}
+.top-container .back-card img {
+  height: 158px;
+  width: 285px;
+}
+
+.form {
+  max-width: 100%;
+  margin: 1px;
+  padding: 20px;
+}
+.form input {
+  width: 92%;
+  border: 1px solid #dedddf;
+  border-radius: 8px;
+  border-width: 1.2px;
+  padding: 10px;
+  font-size: 1.2rem;
+}
+.form input::-moz-placeholder {
+  color: #dedddf;
+}
+.form input::placeholder {
+  color: #dedddf;
+}/*# sourceMappingURL=styles.css.map */
