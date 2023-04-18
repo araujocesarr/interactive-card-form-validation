@@ -15,21 +15,22 @@ body {
   font-size: 18px;
   font-weight: 500;
   margin: 0;
+  background-image: url("images/bg-main-mobile.png");
+  background-size: 100% 240px;
+  background-repeat: no-repeat;
 }
 
 .top-container {
   width: 100%;
   height: 285px;
-  background-image: url("images/bg-main-mobile.png");
-  background-size: 100% 240px;
-  background-repeat: no-repeat;
 
   .front-card {
     position: relative;
     top: 128px;
-    left: 15px;
+    left: 5%;
+    transition: left 0.8s ease-in-out;
     height: 158px;
-    width: 285px;
+    width: 100%;
     z-index: 1;
     #card-logo {
       position: absolute;
@@ -48,9 +49,10 @@ body {
   .back-card {
     position: relative;
     top: -120px;
-    left: 60px;
+    left: 16%;
+    transition: left 0.8s ease-in-out;
     height: 158px;
-    width: 285px;
+    width: 100%;
     img {
       height: 158px;
       width: 285px;
@@ -72,6 +74,19 @@ body {
     font-size: 1.2rem;
     &::placeholder {
       color: $color-light-violet;
+    }
+  }
+}
+
+@media screen and (min-width: 424px) {
+  .top-container {
+    .front-card {
+      left: 12%;
+      transition: left 0.8s ease-in-out;
+    }
+    .back-card {
+      left: 20%;
+      transition: left 0.8s ease-in-out;
     }
   }
 }
