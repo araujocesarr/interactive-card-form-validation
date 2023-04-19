@@ -5,6 +5,7 @@
 }
 body {
   font-family: "Space Grotesk", sans-serif;
+  letter-spacing: 0.8px;
   font-size: 18px;
   font-weight: 500;
   margin: 0;
@@ -52,9 +53,37 @@ body {
 }
 
 .form {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
   max-width: 100%;
-  margin: 1px;
+  margin-left: 2%;
   padding: 20px;
+}
+.form > * {
+  margin-bottom: 25px;
+}
+.form .card-another-numbers {
+  display: flex;
+}
+.form .card-another-numbers .exp-date {
+  max-width: 50%;
+}
+.form .card-another-numbers .exp-date #exp-date-mm {
+  max-width: 30%;
+}
+.form .card-another-numbers .exp-date #exp-date-yy {
+  max-width: 30%;
+}
+.form .card-another-numbers .cvc {
+  max-width: 50%;
+}
+.form .card-another-numbers .cvc #cvc {
+  max-width: 85%;
+}
+.form p {
+  font-size: 0.75rem;
+  margin: 0 0 2% 0.5%;
 }
 .form input {
   width: 92%;
@@ -69,6 +98,24 @@ body {
 }
 .form input::placeholder {
   color: #dedddf;
+}
+.form .confirm {
+  width: 99%;
+  background-color: #22092f;
+  color: #dedddf;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 12px;
+}
+.form .attribution {
+  color: #8e8593;
+  text-align: center;
+  font-size: 0.65rem;
+}
+.form .attribution a {
+  text-decoration: none;
+  color: #22092f;
 }
 
 @media screen and (min-width: 424px) {
