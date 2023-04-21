@@ -1,13 +1,8 @@
-@import url("https://fonts.google.com/specimen/Space+Grotesk");
-@font-face {
-  font-family: "Space Grotesk";
-  src: url("https://fonts.google.com/specimen/Space+Grotesk");
-}
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
 body {
-  font-family: "Space Grotesk", sans-serif;
-  letter-spacing: 0.8px;
+  font-family: "Space Grotesk";
+  letter-spacing: 2px;
   font-size: 18px;
-  font-weight: 500;
   margin: 0;
   background-image: url("images/bg-main-mobile.png");
   background-size: 100% 240px;
@@ -53,54 +48,61 @@ body {
 }
 
 .form {
-  margin-top: 25px;
   display: flex;
   flex-direction: column;
-  max-width: 100%;
-  margin-left: 2%;
-  padding: 20px;
+  margin-top: 25px;
+  margin-left: 7%;
+  margin-right: 10%;
+  width: 85vw;
 }
 .form > * {
   margin-bottom: 25px;
 }
 .form .card-another-numbers {
+  max-width: 100%;
   display: flex;
+  justify-content: space-between;
+}
+.form .card-another-numbers p {
+  margin-bottom: 5%;
 }
 .form .card-another-numbers .exp-date {
   max-width: 50%;
 }
-.form .card-another-numbers .exp-date #exp-date-mm {
-  max-width: 30%;
-}
+.form .card-another-numbers .exp-date #exp-date-mm,
 .form .card-another-numbers .exp-date #exp-date-yy {
-  max-width: 30%;
+  max-width: 45%;
 }
 .form .card-another-numbers .cvc {
   max-width: 50%;
 }
-.form .card-another-numbers .cvc #cvc {
-  max-width: 85%;
-}
 .form p {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   margin: 0 0 2% 0.5%;
+  font-weight: 550;
 }
 .form input {
-  width: 92%;
+  width: 100%;
   border: 1px solid #dedddf;
   border-radius: 8px;
   border-width: 1.2px;
+  box-sizing: border-box;
   padding: 10px;
   font-size: 1.2rem;
 }
 .form input::-moz-placeholder {
   color: #dedddf;
+  font-weight: 500;
+  font-family: "Space Grotesk";
 }
 .form input::placeholder {
   color: #dedddf;
+  font-weight: 500;
+  font-family: "Space Grotesk";
 }
 .form .confirm {
-  width: 99%;
+  box-sizing: border-box;
+  width: 100%;
   background-color: #22092f;
   color: #dedddf;
   font-size: 1rem;
@@ -111,7 +113,8 @@ body {
 .form .attribution {
   color: #8e8593;
   text-align: center;
-  font-size: 0.65rem;
+  font-size: 0.6rem;
+  letter-spacing: 4px;
 }
 .form .attribution a {
   text-decoration: none;
@@ -126,5 +129,112 @@ body {
   .top-container .back-card {
     left: 20%;
     transition: left 0.8s ease-in-out;
+  }
+}
+@media screen and (min-width: 768px) {
+  .top-container .front-card {
+    left: 30%;
+    transition: left 0.8s ease-in-out;
+  }
+  .top-container .back-card {
+    left: 35%;
+    transition: left 0.8s ease-in-out;
+  }
+  .form {
+    margin-top: 8%;
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .form > * {
+    margin-bottom: 30px;
+  }
+  .form .card-another-numbers {
+    justify-content: space-between;
+  }
+  .form .confirm {
+    max-width: 100%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .top-container .front-card {
+    left: 35%;
+    transition: left 0.8s ease-in-out;
+  }
+  .top-container .back-card {
+    left: 40%;
+    transition: left 0.8s ease-in-out;
+  }
+  .form {
+    max-width: 50%;
+  }
+}
+@media screen and (min-width: 1440px) {
+  body {
+    background-image: url(images/bg-main-desktop.png);
+    background-size: 33.8vw 100vh;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .top-container .front-card {
+    position: relative;
+    top: 90%;
+    left: 12%;
+  }
+  .top-container .front-card #card-logo {
+    height: 47px;
+    width: 86px;
+  }
+  .top-container .front-card img {
+    height: 160%;
+    width: auto;
+  }
+  .top-container .back-card {
+    top: 135%;
+    left: 18%;
+  }
+  .top-container .back-card img {
+    height: 160%;
+    width: auto;
+  }
+  .form {
+    position: relative;
+    top: -5vh;
+    left: 25vw;
+    max-width: 32%;
+  }
+}
+@media screen and (min-width: 2560px) {
+  .top-container .front-card {
+    position: relative;
+    top: 80%;
+    left: -10%;
+  }
+  .top-container .front-card img {
+    height: 190%;
+    width: auto;
+  }
+  .top-container .back-card {
+    top: 150%;
+    left: 10%;
+  }
+  .top-container .back-card img {
+    height: 190%;
+    width: auto;
+  }
+  .form {
+    max-width: 40%;
+  }
+  .form p {
+    font-size: 1rem;
+  }
+  .form input {
+    font-size: 1.5rem;
+  }
+  .form .confirm {
+    font-size: 1.5rem;
+  }
+  .form .attribution {
+    font-size: 0.75rem;
   }
 }/*# sourceMappingURL=styles.css.map */

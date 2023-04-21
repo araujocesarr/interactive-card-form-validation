@@ -1,20 +1,16 @@
-@import url("https://fonts.google.com/specimen/Space+Grotesk");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
 
 $color-white: #ffffff;
 $color-light-violet: #dedddf;
 $color-dark-violet: #8e8593;
 $color-very-dark-violet: #22092f;
 
-@font-face {
-  font-family: "Space Grotesk";
-  src: url("https://fonts.google.com/specimen/Space+Grotesk");
-}
+$font-stack: "Space Grotesk";
 
 body {
-  font-family: "Space Grotesk", sans-serif;
-  letter-spacing: 0.8px;
+  font-family: $font-stack;
+  letter-spacing: 2px;
   font-size: 18px;
-  font-weight: 500;
   margin: 0;
   background-image: url("images/bg-main-mobile.png");
   background-size: 100% 240px;
@@ -62,53 +58,59 @@ body {
 }
 
 .form {
-  margin-top: 25px;
   display: flex;
   flex-direction: column;
-  max-width: 100%;
-  margin-left: 2%;
-  padding: 20px;
+  margin-top: 25px;
+  margin-left: 7%;
+  margin-right: 10%;
+  width: 85vw;
+
   & > * {
     margin-bottom: 25px;
   }
+
   .card-another-numbers {
+    max-width: 100%;
     display: flex;
+    justify-content: space-between;
+    p {
+      margin-bottom: 5%;
+    }
     .exp-date {
       max-width: 50%;
-
-      #exp-date-mm {
-        max-width: 30%;
-      }
+      #exp-date-mm,
       #exp-date-yy {
-        max-width: 30%;
+        max-width: 45%; // Cambiar a 50% para dividir igualmente el ancho del contenedor padre
       }
     }
     .cvc {
       max-width: 50%;
-      #cvc {
-        max-width: 85%;
-      }
     }
   }
   p {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     margin: 0 0 2% 0.5%;
+    font-weight: 550;
   }
 
   input {
-    width: 92%;
+    width: 100%;
     border: 1px solid $color-light-violet;
     border-radius: 8px;
     border-width: 1.2px;
+    box-sizing: border-box;
     padding: 10px;
     font-size: 1.2rem;
     &::placeholder {
       color: $color-light-violet;
+      font-weight: 500;
+      font-family: $font-stack;
     }
   }
 
   .confirm {
-    width: 99%;
+    box-sizing: border-box;
+    width: 100%;
     background-color: $color-very-dark-violet;
     color: $color-light-violet;
     font-size: 1rem;
@@ -120,7 +122,8 @@ body {
   .attribution {
     color: $color-dark-violet;
     text-align: center;
-    font-size: 0.65rem;
+    font-size: 0.6rem;
+    letter-spacing: 4px;
     a {
       text-decoration: none;
       color: $color-very-dark-violet;
@@ -137,6 +140,126 @@ body {
     .back-card {
       left: 20%;
       transition: left 0.8s ease-in-out;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .top-container {
+    .front-card {
+      left: 30%;
+      transition: left 0.8s ease-in-out;
+    }
+    .back-card {
+      left: 35%;
+      transition: left 0.8s ease-in-out;
+    }
+  }
+  .form {
+    margin-top: 8%;
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    & > * {
+      margin-bottom: 30px;
+    }
+
+    .card-another-numbers {
+      justify-content: space-between;
+    }
+    .confirm {
+      max-width: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .top-container {
+    .front-card {
+      left: 35%;
+      transition: left 0.8s ease-in-out;
+    }
+    .back-card {
+      left: 40%;
+      transition: left 0.8s ease-in-out;
+    }
+  }
+  .form {
+    max-width: 50%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  body {
+    background-image: url(images/bg-main-desktop.png);
+    background-size: 33.8vw 100vh;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .top-container {
+    .front-card {
+      position: relative;
+      top: 90%;
+      left: 12%;
+      #card-logo {
+        height: 47px;
+        width: 86px;
+      }
+      img {
+        height: 160%;
+        width: auto;
+      }
+    }
+    .back-card {
+      top: 135%;
+      left: 18%;
+      img {
+        height: 160%;
+        width: auto;
+      }
+    }
+  }
+
+  .form {
+    position: relative;
+    top: -5vh;
+    left: 25vw;
+    max-width: 32%;
+  }
+}
+@media screen and (min-width: 2560px) {
+  .top-container {
+    .front-card {
+      position: relative;
+      top: 80%;
+      left: -10%;
+      img {
+        height: 190%;
+        width: auto;
+      }
+    }
+    .back-card {
+      top: 150%;
+      left: 10%;
+      img {
+        height: 190%;
+        width: auto;
+      }
+    }
+  }
+  .form {
+    max-width: 40%;
+    p {
+      font-size: 1rem;
+    }
+    input {
+      font-size: 1.5rem;
+    }
+    .confirm {
+      font-size: 1.5rem;
+    }
+    .attribution {
+      font-size: 0.75rem;
     }
   }
 }
