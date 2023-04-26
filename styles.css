@@ -22,6 +22,42 @@ body {
   width: 100%;
   z-index: 1;
 }
+.top-container .front-card p {
+  color: #dedddf;
+}
+.top-container .front-card .card-img-number {
+  position: absolute;
+  font-size: 1.15rem;
+  left: 16px;
+  top: 70px;
+}
+.top-container .front-card .card-img-name {
+  text-transform: uppercase;
+  font-size: 0.6rem;
+  letter-spacing: 1.5px;
+  position: absolute;
+  left: 16px;
+  top: 115px;
+}
+.top-container .front-card .card-img-date-mm {
+  font-size: 0.6rem;
+  position: absolute;
+  left: 200px;
+  top: 115px;
+}
+.top-container .front-card .card-img-date-yy {
+  font-size: 0.6rem;
+  position: absolute;
+  left: 220px;
+  top: 115px;
+}
+.top-container .front-card span {
+  color: #dedddf;
+  position: absolute;
+  font-size: 0.6rem;
+  left: 215.8px;
+  top: 124.4px;
+}
 .top-container .front-card #card-logo {
   position: absolute;
   left: 15px;
@@ -41,6 +77,14 @@ body {
   transition: left 0.8s ease-in-out;
   height: 158px;
   width: 100%;
+}
+.top-container .back-card .card-img-cvc {
+  letter-spacing: 1px;
+  color: #dedddf;
+  position: absolute;
+  font-size: 0.75rem;
+  left: 220px;
+  top: 59px;
 }
 .top-container .back-card img {
   height: 158px;
@@ -90,6 +134,10 @@ body {
   padding: 10px;
   font-size: 1.2rem;
 }
+.form input:focus {
+  outline: none;
+  box-shadow: 0 0 0 1.5px hsl(249, 99%, 64%), 0 0 0 1.5px hsl(278, 94%, 30%);
+}
 .form input::-moz-placeholder {
   color: #dedddf;
   font-weight: 500;
@@ -101,6 +149,7 @@ body {
   font-family: "Space Grotesk";
 }
 .form .confirm {
+  cursor: pointer;
   box-sizing: border-box;
   width: 100%;
   background-color: #22092f;
@@ -177,13 +226,47 @@ body {
     margin: 0 auto;
   }
   .top-container .front-card {
+    z-index: -1;
     position: relative;
     top: 90%;
     left: 12%;
   }
   .top-container .front-card #card-logo {
+    top: 30px;
+    left: 40px;
     height: 47px;
     width: 86px;
+  }
+  .top-container .front-card .card-img-number {
+    font-size: 1.8rem;
+    top: 120px;
+    left: 40px;
+    letter-spacing: 3px;
+    font-weight: 600;
+  }
+  .top-container .front-card .card-img-name {
+    font-size: 0.8rem;
+    top: 200px;
+    left: 40px;
+    font-weight: 600;
+  }
+  .top-container .front-card .card-img-date-mm {
+    font-size: 0.8rem;
+    top: 200px;
+    left: 380px;
+    font-weight: 600;
+  }
+  .top-container .front-card span {
+    font-size: 0.8rem;
+    top: 211.5px;
+    left: 401px;
+    font-weight: 600;
+  }
+  .top-container .front-card .card-img-date-yy {
+    font-size: 0.8rem;
+    top: 200px;
+    left: 410px;
+    font-weight: 600;
   }
   .top-container .front-card img {
     height: 160%;
@@ -192,6 +275,14 @@ body {
   .top-container .back-card {
     top: 135%;
     left: 18%;
+  }
+  .top-container .back-card .card-img-cvc {
+    position: absolute;
+    letter-spacing: 2px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    left: 360px;
+    top: 90px;
   }
   .top-container .back-card img {
     height: 160%;
