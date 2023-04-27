@@ -100,6 +100,46 @@ body {
     }
   }
 }
+.complete-container {
+  display: none;
+  width: 85vw;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+  margin-left: 7%;
+  margin-right: 10%;
+
+  .img-complete {
+    margin-top: 10%;
+    height: 90px;
+    width: auto;
+  }
+  .thanks {
+    color: $color-very-dark-violet;
+    margin-top: 12%;
+    font-weight: 500;
+    font-size: 1.6rem;
+  }
+  .complete {
+    text-align: center;
+    color: $color-dark-violet;
+    font-weight: 500;
+    margin-bottom: 15%;
+    font-size: 1rem;
+  }
+  .continue {
+    cursor: pointer;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: $color-very-dark-violet;
+    color: $color-light-violet;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 12px;
+  }
+}
 
 #my-form {
   display: flex;
@@ -260,7 +300,8 @@ body {
 @media screen and (min-width: 1440px) {
   body {
     background-image: url(images/bg-main-desktop.png);
-    background-size: 33.8vw 100vh;
+    background-size: 33.8vw 100%;
+    background-attachment: fixed;
     max-width: 1440px;
     margin: 0 auto;
   }
@@ -336,6 +377,13 @@ body {
     left: 25vw;
     max-width: 32%;
   }
+
+  .complete-container {
+    position: relative;
+    top: -5vh;
+    left: 50vw;
+    max-width: 32%;
+  }
 }
 @media screen and (min-width: 2560px) {
   .top-container {
@@ -371,5 +419,11 @@ body {
     .attribution {
       font-size: 0.75rem;
     }
+  }
+  .complete-container {
+    position: relative;
+    top: -5vh;
+    left: 40vw;
+    max-width: 32%;
   }
 }

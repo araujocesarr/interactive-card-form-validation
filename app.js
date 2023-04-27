@@ -15,12 +15,17 @@ const cardNumberError = document.getElementById("error-number");
 const cardDateError = document.getElementById("error-date");
 const cardCvcError = document.getElementById("error-cvc");
 const form = document.querySelector("#my-form");
+const complete = document.querySelector(".complete-container");
+const body = document.querySelector("body");
+
+let validation = false;
 
 console.log(cardImageCvc);
 console.log(cardholderInput);
 console.log(cardNumberInput);
 console.log(cardMM);
 console.log(cardDateError);
+console.log(body);
 
 function validateName() {
   const name = cardholderInput.value.trim();
@@ -151,11 +156,32 @@ function validateCvc() {
 }
 cvc.addEventListener("blur", validateCvc);
 
+function formValidation() {
+  const nameValidation = validateName();
+  const numberValidation = validateNumber();
+  const monthValidation = validateMonth();
+  const yearValidation = validateYear();
+  const cvcValidation = validateCvc();
+  return (
+    nameValidation &&
+    numberValidation &&
+    monthValidation &&
+    yearValidation &&
+    cvcValidation
+  );
+}
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  validateName();
-  validateNumber();
-  validateMonth();
-  validateYear();
-  validateCvc();
+  const validForm = formValidation();
+  if (validForm) {
+    form.style.display = "none";
+    complete.style.display = "flex";
+  }
+});
+
+complete.addEventListener("click", (event) => {
+  form.style.display = "flex";
+  complete.style.display = "none";
+  location.reload();
 });
