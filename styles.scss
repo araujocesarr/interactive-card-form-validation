@@ -101,13 +101,23 @@ body {
   }
 }
 
-.form {
+#my-form {
   display: flex;
   flex-direction: column;
   margin-top: 25px;
   margin-left: 7%;
   margin-right: 10%;
   width: 85vw;
+
+  .error {
+    outline: none;
+    box-shadow: 0 0 0 1.5px hsl(0, 100%, 66%);
+  }
+  .error-message {
+    color: hsl(0, 100%, 66%);
+    font-size: 0.8rem;
+    margin-top: 5px;
+  }
 
   & > * {
     margin-bottom: 25px;
@@ -131,6 +141,7 @@ body {
       max-width: 50%;
     }
   }
+
   p {
     font-size: 0.7rem;
     margin: 0 0 2% 0.5%;
@@ -154,6 +165,14 @@ body {
       font-weight: 500;
       font-family: $font-stack;
     }
+  }
+
+  #error-date {
+    font-weight: 400;
+    font-size: 0.65rem;
+    max-width: 90%;
+    margin-left: -2%;
+    text-align: center;
   }
 
   .confirm {
@@ -204,7 +223,7 @@ body {
       transition: left 0.8s ease-in-out;
     }
   }
-  .form {
+  #my-form {
     margin-top: 8%;
     max-width: 60%;
     margin-left: auto;
@@ -233,7 +252,7 @@ body {
       transition: left 0.8s ease-in-out;
     }
   }
-  .form {
+  #my-form {
     max-width: 50%;
   }
 }
@@ -311,7 +330,7 @@ body {
     }
   }
 
-  .form {
+  #my-form {
     position: relative;
     top: -5vh;
     left: 25vw;
@@ -338,7 +357,7 @@ body {
       }
     }
   }
-  .form {
+  #my-form {
     max-width: 40%;
     p {
       font-size: 1rem;

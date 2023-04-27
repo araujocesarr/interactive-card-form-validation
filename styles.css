@@ -91,7 +91,7 @@ body {
   width: 285px;
 }
 
-.form {
+#my-form {
   display: flex;
   flex-direction: column;
   margin-top: 25px;
@@ -99,33 +99,42 @@ body {
   margin-right: 10%;
   width: 85vw;
 }
-.form > * {
+#my-form .error {
+  outline: none;
+  box-shadow: 0 0 0 1.5px hsl(0, 100%, 66%);
+}
+#my-form .error-message {
+  color: hsl(0, 100%, 66%);
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+#my-form > * {
   margin-bottom: 25px;
 }
-.form .card-another-numbers {
+#my-form .card-another-numbers {
   max-width: 100%;
   display: flex;
   justify-content: space-between;
 }
-.form .card-another-numbers p {
+#my-form .card-another-numbers p {
   margin-bottom: 5%;
 }
-.form .card-another-numbers .exp-date {
+#my-form .card-another-numbers .exp-date {
   max-width: 50%;
 }
-.form .card-another-numbers .exp-date #exp-date-mm,
-.form .card-another-numbers .exp-date #exp-date-yy {
+#my-form .card-another-numbers .exp-date #exp-date-mm,
+#my-form .card-another-numbers .exp-date #exp-date-yy {
   max-width: 45%;
 }
-.form .card-another-numbers .cvc {
+#my-form .card-another-numbers .cvc {
   max-width: 50%;
 }
-.form p {
+#my-form p {
   font-size: 0.7rem;
   margin: 0 0 2% 0.5%;
   font-weight: 550;
 }
-.form input {
+#my-form input {
   width: 100%;
   border: 1px solid #dedddf;
   border-radius: 8px;
@@ -134,21 +143,28 @@ body {
   padding: 10px;
   font-size: 1.2rem;
 }
-.form input:focus {
+#my-form input:focus {
   outline: none;
   box-shadow: 0 0 0 1.5px hsl(249, 99%, 64%), 0 0 0 1.5px hsl(278, 94%, 30%);
 }
-.form input::-moz-placeholder {
+#my-form input::-moz-placeholder {
   color: #dedddf;
   font-weight: 500;
   font-family: "Space Grotesk";
 }
-.form input::placeholder {
+#my-form input::placeholder {
   color: #dedddf;
   font-weight: 500;
   font-family: "Space Grotesk";
 }
-.form .confirm {
+#my-form #error-date {
+  font-weight: 400;
+  font-size: 0.65rem;
+  max-width: 90%;
+  margin-left: -2%;
+  text-align: center;
+}
+#my-form .confirm {
   cursor: pointer;
   box-sizing: border-box;
   width: 100%;
@@ -159,13 +175,13 @@ body {
   border-radius: 8px;
   padding: 12px;
 }
-.form .attribution {
+#my-form .attribution {
   color: #8e8593;
   text-align: center;
   font-size: 0.6rem;
   letter-spacing: 4px;
 }
-.form .attribution a {
+#my-form .attribution a {
   text-decoration: none;
   color: #22092f;
 }
@@ -189,19 +205,19 @@ body {
     left: 35%;
     transition: left 0.8s ease-in-out;
   }
-  .form {
+  #my-form {
     margin-top: 8%;
     max-width: 60%;
     margin-left: auto;
     margin-right: auto;
   }
-  .form > * {
+  #my-form > * {
     margin-bottom: 30px;
   }
-  .form .card-another-numbers {
+  #my-form .card-another-numbers {
     justify-content: space-between;
   }
-  .form .confirm {
+  #my-form .confirm {
     max-width: 100%;
   }
 }
@@ -214,7 +230,7 @@ body {
     left: 40%;
     transition: left 0.8s ease-in-out;
   }
-  .form {
+  #my-form {
     max-width: 50%;
   }
 }
@@ -288,7 +304,7 @@ body {
     height: 160%;
     width: auto;
   }
-  .form {
+  #my-form {
     position: relative;
     top: -5vh;
     left: 25vw;
@@ -313,19 +329,19 @@ body {
     height: 190%;
     width: auto;
   }
-  .form {
+  #my-form {
     max-width: 40%;
   }
-  .form p {
+  #my-form p {
     font-size: 1rem;
   }
-  .form input {
+  #my-form input {
     font-size: 1.5rem;
   }
-  .form .confirm {
+  #my-form .confirm {
     font-size: 1.5rem;
   }
-  .form .attribution {
+  #my-form .attribution {
     font-size: 0.75rem;
   }
 }/*# sourceMappingURL=styles.css.map */
