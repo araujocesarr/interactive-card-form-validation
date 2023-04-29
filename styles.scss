@@ -6,7 +6,9 @@ $color-dark-violet: #8e8593;
 $color-very-dark-violet: #22092f;
 
 $font-stack: "Space Grotesk";
-
+html {
+  overflow-x: hidden;
+}
 body {
   overflow-x: hidden;
   font-family: $font-stack;
