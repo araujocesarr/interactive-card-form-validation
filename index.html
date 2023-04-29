@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="icon"
@@ -11,21 +10,42 @@
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
-
+    <!--This is a credit card validation form-->
     <title>Frontend Mentor | Interactive card details form</title>
   </head>
   <body>
+    <!--Container with card's images-->
     <div class="top-container">
       <div class="front-card">
         <img src="images/bg-card-front.png" alt="Front card.html" />
+        <p class="card-img-number">0000 0000 0000 0000</p>
+        <p class="card-img-name">Jane Appleseed</p>
+        <p class="card-img-date-mm">00</p>
+        <span>/</span>
+        <p class="card-img-date-yy">00</p>
         <img id="card-logo" src="images/card-logo.svg" alt="card-logo" />
       </div>
       <div class="back-card">
         <img src="images/bg-card-back.png" alt="Back card.html" />
+        <p class="card-img-cvc">000</p>
       </div>
     </div>
 
-    <div class="form">
+    <!--Container with complete status-->
+    <div class="complete-container">
+      <img
+        class="img-complete"
+        src="images/icon-complete.svg"
+        alt="complete status"
+        srcset=""
+      />
+      <h1 class="thanks">THANK YOU!</h1>
+      <p class="complete">We've added your card details</p>
+      <button class="continue" type="submit">Continue</button>
+    </div>
+
+    <!--Form with inputs to complete-->
+    <form id="my-form">
       <div class="cardholder">
         <p class="cardholder-name">CARDHOLDER NAME</p>
         <input
@@ -34,44 +54,52 @@
           id="cardholder"
           placeholder="e.g. Jane Appleseed"
         />
+        <div class="error-message" id="error-cardholder"></div>
       </div>
       <div class="card-number">
         <p class="card-number">CARD NUMBER</p>
         <input
-          type="number"
+          type="text"
           name="card-number"
           id="card-number"
           placeholder="e.g. 1234 5678 9123 0000"
         />
+        <div class="error-message" id="error-number"></div>
       </div>
       <div class="card-another-numbers">
         <div class="exp-date">
           <p>EXP. DATE (MM/YY)</p>
           <input
-            type="number"
+            type="text"
             name="exp-date-mm"
             id="exp-date-mm"
             placeholder="MM"
           />
           <input
-            type="number"
+            type="text"
             name="exp-date-yy"
             id="exp-date-yy"
             placeholder="YY"
           />
+          <div class="error-message" id="error-date"></div>
         </div>
         <div class="cvc">
           <p>CVC</p>
-          <input type="number" name="cvc" id="cvc" placeholder="e.g. 123" />
+          <input type="text" name="cvc" id="cvc" placeholder="e.g. 123" />
+          <div class="error-message" id="error-cvc"></div>
         </div>
       </div>
-      <button type="submit">Confirm</button>
+
+      <!--Button for submit-->
+      <button class="confirm" type="submit">Confirm</button>
       <div class="attribution">
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
           >Frontend Mentor</a
-        >. Coded by <a href="#">Your Name Here</a>.
+        >. <br />
+        Coded by <a href="https://github.com/araujocesarr/">César Araujo</a>.
       </div>
-    </div>
+    </form>
   </body>
 </html>
+<script src="app.js"></script>

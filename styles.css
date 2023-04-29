@@ -1,12 +1,9 @@
-@import url("https://fonts.google.com/specimen/Space+Grotesk");
-@font-face {
-  font-family: "Space Grotesk";
-  src: url("https://fonts.google.com/specimen/Space+Grotesk");
-}
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
 body {
-  font-family: "Space Grotesk", sans-serif;
+  overflow-x: hidden;
+  font-family: "Space Grotesk";
+  letter-spacing: 2px;
   font-size: 18px;
-  font-weight: 500;
   margin: 0;
   background-image: url("images/bg-main-mobile.png");
   background-size: 100% 240px;
@@ -25,6 +22,42 @@ body {
   height: 158px;
   width: 100%;
   z-index: 1;
+}
+.top-container .front-card p {
+  color: #dedddf;
+}
+.top-container .front-card .card-img-number {
+  position: absolute;
+  font-size: 1.15rem;
+  left: 16px;
+  top: 70px;
+}
+.top-container .front-card .card-img-name {
+  text-transform: uppercase;
+  font-size: 0.6rem;
+  letter-spacing: 1.5px;
+  position: absolute;
+  left: 16px;
+  top: 115px;
+}
+.top-container .front-card .card-img-date-mm {
+  font-size: 0.6rem;
+  position: absolute;
+  left: 200px;
+  top: 115px;
+}
+.top-container .front-card .card-img-date-yy {
+  font-size: 0.6rem;
+  position: absolute;
+  left: 220px;
+  top: 115px;
+}
+.top-container .front-card span {
+  color: #dedddf;
+  position: absolute;
+  font-size: 0.6rem;
+  left: 215.8px;
+  top: 124.4px;
 }
 .top-container .front-card #card-logo {
   position: absolute;
@@ -46,29 +79,152 @@ body {
   height: 158px;
   width: 100%;
 }
+.top-container .back-card .card-img-cvc {
+  letter-spacing: 1px;
+  color: #dedddf;
+  position: absolute;
+  font-size: 0.75rem;
+  left: 220px;
+  top: 59px;
+}
 .top-container .back-card img {
   height: 158px;
   width: 285px;
 }
 
-.form {
-  max-width: 100%;
-  margin: 1px;
-  padding: 20px;
+.complete-container {
+  display: none;
+  width: 85vw;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+  margin-left: 7%;
+  margin-right: 10%;
 }
-.form input {
-  width: 92%;
+.complete-container .img-complete {
+  margin-top: 10%;
+  height: 90px;
+  width: auto;
+}
+.complete-container .thanks {
+  color: #22092f;
+  margin-top: 12%;
+  font-weight: 500;
+  font-size: 1.6rem;
+}
+.complete-container .complete {
+  text-align: center;
+  color: #8e8593;
+  font-weight: 500;
+  margin-bottom: 15%;
+  font-size: 1rem;
+}
+.complete-container .continue {
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #22092f;
+  color: #dedddf;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+#my-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  margin-left: 7%;
+  margin-right: 10%;
+  width: 85vw;
+}
+#my-form .error {
+  outline: none;
+  box-shadow: 0 0 0 1.5px hsl(0, 100%, 66%);
+}
+#my-form .error-message {
+  color: hsl(0, 100%, 66%);
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+#my-form > * {
+  margin-bottom: 25px;
+}
+#my-form .card-another-numbers {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+#my-form .card-another-numbers p {
+  margin-bottom: 5%;
+}
+#my-form .card-another-numbers .exp-date {
+  max-width: 50%;
+}
+#my-form .card-another-numbers .exp-date #exp-date-mm,
+#my-form .card-another-numbers .exp-date #exp-date-yy {
+  max-width: 45%;
+}
+#my-form .card-another-numbers .cvc {
+  max-width: 50%;
+}
+#my-form p {
+  font-size: 0.7rem;
+  margin: 0 0 2% 0.5%;
+  font-weight: 550;
+}
+#my-form input {
+  width: 100%;
   border: 1px solid #dedddf;
   border-radius: 8px;
   border-width: 1.2px;
+  box-sizing: border-box;
   padding: 10px;
   font-size: 1.2rem;
 }
-.form input::-moz-placeholder {
-  color: #dedddf;
+#my-form input:focus {
+  outline: none;
+  box-shadow: 0 0 0 1.5px hsl(249, 99%, 64%), 0 0 0 1.5px hsl(278, 94%, 30%);
 }
-.form input::placeholder {
+#my-form input::-moz-placeholder {
   color: #dedddf;
+  font-weight: 500;
+  font-family: "Space Grotesk";
+}
+#my-form input::placeholder {
+  color: #dedddf;
+  font-weight: 500;
+  font-family: "Space Grotesk";
+}
+#my-form #error-date {
+  font-weight: 400;
+  font-size: 0.65rem;
+  max-width: 90%;
+  margin-left: -2%;
+  text-align: center;
+}
+#my-form .confirm {
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #22092f;
+  color: #dedddf;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 12px;
+}
+#my-form .attribution {
+  color: #8e8593;
+  text-align: center;
+  font-size: 0.6rem;
+  letter-spacing: 4px;
+}
+#my-form .attribution a {
+  text-decoration: none;
+  color: #22092f;
 }
 
 @media screen and (min-width: 424px) {
@@ -79,5 +235,167 @@ body {
   .top-container .back-card {
     left: 20%;
     transition: left 0.8s ease-in-out;
+  }
+}
+@media screen and (min-width: 768px) {
+  .top-container .front-card {
+    left: 30%;
+    transition: left 0.8s ease-in-out;
+  }
+  .top-container .back-card {
+    left: 35%;
+    transition: left 0.8s ease-in-out;
+  }
+  #my-form {
+    margin-top: 8%;
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #my-form > * {
+    margin-bottom: 30px;
+  }
+  #my-form .card-another-numbers {
+    justify-content: space-between;
+  }
+  #my-form .confirm {
+    max-width: 100%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .top-container .front-card {
+    left: 35%;
+    transition: left 0.8s ease-in-out;
+  }
+  .top-container .back-card {
+    left: 40%;
+    transition: left 0.8s ease-in-out;
+  }
+  #my-form {
+    max-width: 50%;
+  }
+}
+@media screen and (min-width: 1440px) {
+  body {
+    background-image: url(images/bg-main-desktop.png);
+    background-size: 33.8vw 100%;
+    background-attachment: fixed;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .top-container .front-card {
+    z-index: -1;
+    position: relative;
+    top: 90%;
+    left: 12%;
+  }
+  .top-container .front-card #card-logo {
+    top: 30px;
+    left: 40px;
+    height: 47px;
+    width: 86px;
+  }
+  .top-container .front-card .card-img-number {
+    font-size: 1.8rem;
+    top: 120px;
+    left: 40px;
+    letter-spacing: 3px;
+    font-weight: 600;
+  }
+  .top-container .front-card .card-img-name {
+    font-size: 0.8rem;
+    top: 200px;
+    left: 40px;
+    font-weight: 600;
+  }
+  .top-container .front-card .card-img-date-mm {
+    font-size: 0.8rem;
+    top: 200px;
+    left: 380px;
+    font-weight: 600;
+  }
+  .top-container .front-card span {
+    font-size: 0.8rem;
+    top: 211.5px;
+    left: 401px;
+    font-weight: 600;
+  }
+  .top-container .front-card .card-img-date-yy {
+    font-size: 0.8rem;
+    top: 200px;
+    left: 410px;
+    font-weight: 600;
+  }
+  .top-container .front-card img {
+    height: 160%;
+    width: auto;
+  }
+  .top-container .back-card {
+    top: 135%;
+    left: 18%;
+  }
+  .top-container .back-card .card-img-cvc {
+    position: absolute;
+    letter-spacing: 2px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    left: 360px;
+    top: 90px;
+  }
+  .top-container .back-card img {
+    height: 160%;
+    width: auto;
+  }
+  #my-form {
+    position: relative;
+    top: -5vh;
+    left: 25vw;
+    max-width: 32%;
+  }
+  .complete-container {
+    position: relative;
+    top: -5vh;
+    left: 50vw;
+    max-width: 32%;
+  }
+}
+@media screen and (min-width: 2560px) {
+  .top-container .front-card {
+    position: relative;
+    top: 80%;
+    left: -10%;
+  }
+  .top-container .front-card img {
+    height: 190%;
+    width: auto;
+  }
+  .top-container .back-card {
+    top: 150%;
+    left: 10%;
+  }
+  .top-container .back-card img {
+    height: 190%;
+    width: auto;
+  }
+  #my-form {
+    max-width: 40%;
+  }
+  #my-form p {
+    font-size: 1rem;
+  }
+  #my-form input {
+    font-size: 1.5rem;
+  }
+  #my-form .confirm {
+    font-size: 1.5rem;
+  }
+  #my-form .attribution {
+    font-size: 0.75rem;
+  }
+  .complete-container {
+    position: relative;
+    top: -5vh;
+    left: 40vw;
+    max-width: 32%;
   }
 }/*# sourceMappingURL=styles.css.map */
