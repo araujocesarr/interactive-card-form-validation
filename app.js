@@ -1,43 +1,69 @@
+/**File name: app.js
+ * Description: this file contains the JavaScript code 
+ for form interaction and funcionality
+ *Author: César Araujo
+ *Creation date: 29/04/2023
+ */
+
+//User inputs
 const cardholderInput = document.getElementById("cardholder");
+const cardNumberInput = document.getElementById("card-number");
+const cardMM = document.getElementById("exp-date-mm");
+const cardYY = document.getElementById("exp-date-yy");
+const cvc = document.getElementById("cvc");
+
+//Card images
 const cardImageName = document.querySelector(".card-img-name");
 const cardImageNumber = document.querySelector(".card-img-number");
 const cardImageYear = document.querySelector(".card-img-date-yy");
 const cardImageMonth = document.querySelector(".card-img-date-mm");
 const cardImageCvc = document.querySelector(".card-img-cvc");
-const cardNumberInput = document.getElementById("card-number");
-const cardMM = document.getElementById("exp-date-mm");
-const cardYY = document.getElementById("exp-date-yy");
-const cvc = document.getElementById("cvc");
-const confirm = document.getElementsByClassName("confirm");
+
+//Errors
 const cardholderError = document.getElementById("error-cardholder");
 const cardNumberError = document.getElementById("error-number");
 const cardDateError = document.getElementById("error-date");
 const cardCvcError = document.getElementById("error-cvc");
+
+//Others elements
+const confirm = document.getElementsByClassName("confirm");
 const form = document.querySelector("#my-form");
 const complete = document.querySelector(".complete-container");
 
+/**
+ * Validates the cardholder name input field
+ * @returns (boolean) Returns true if the name is valid and false if it's not
+ */
 function validateName() {
+  //Value of the name input field without whitespaces
   const name = cardholderInput.value.trim();
+  //Regex to validate name, only alphabetic characters and some specials are allowed.
   const regex = /^([a-zA-Z\u00C0-\u017F'-]+\s)*[a-zA-Z\u00C0-\u017F'-]+$/;
+  //if the name input is empty display error message and return false
   if (name === "") {
     cardImageName.textContent = name;
     cardholderError.textContent = "Cardholder name is REQUIRED";
     cardholderInput.classList.add("error");
     return false;
-  } else if (!regex.test(name)) {
+  }
+  //if the name input field is not valid, display error message and return false
+  else if (!regex.test(name)) {
     cardImageName.textContent = name;
     cardholderError.textContent = "Enter a valid name";
     cardholderInput.classList.add("error");
     return false;
-  } else {
+  }
+  //if the name input is valid, display name in the image and return true
+  else {
     cardImageName.textContent = name;
     cardholderError.textContent = "";
     cardholderInput.classList.remove("error");
     return true;
   }
 }
+//call the function in the input event
 cardholderInput.addEventListener("input", validateName);
-
+// This event converts the words entered in the "cardholder" input into title format.
 cardholderInput.addEventListener("input", (event) => {
   const words = event.target.value.toLowerCase().split(" ");
   const capitalizedWords = words.map((word) => {
@@ -55,11 +81,15 @@ cardholderInput.addEventListener("input", (event) => {
   event.target.value = capitalizedWords.join(" ");
 });
 
+/**
+ * Validates the card number input field
+ * @returns (boolean) Returns true if the number is valid or false if it's not
+ */
 function validateNumber() {
-  const numberSpaces = deleteSpaces();
-  console.log(numberSpaces);
+  //Get number without spaces from numberSpaces function
+  const numberSpace = numberSpaces();
   const number = cardNumberInput.value.replace(/\s/g, "");
-  console.log(numberSpaces);
+  //regex to validate card number
   const regex = {
     amexCard: /^3[47][0-9]{13}$/,
     bcGlobal: /^(6541|6556)[0-9]{12}$/,
@@ -82,50 +112,68 @@ function validateNumber() {
     visaCard: /^4[0-9]{12}(?:[0-9]{3})?$/,
     visaMaster: /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$/,
   };
+  //if the number input is empty display error and return false
   if (number === "") {
     cardNumberError.textContent = "Card number is REQUIRED";
-    cardImageNumber.textContent = numberSpaces;
+    cardImageNumber.textContent = numberSpace;
     cardNumberInput.classList.add("error");
     return false;
-  } else {
+  }
+  //if the number input is valid return true
+  else {
     for (let regexProp in regex) {
       if (regex[regexProp].test(number)) {
-        cardImageNumber.textContent = numberSpaces;
+        cardImageNumber.textContent = numberSpace;
         cardNumberError.textContent = "";
         cardNumberInput.classList.remove("error");
         return true;
       }
     }
-    cardImageNumber.textContent = numberSpaces;
+    cardImageNumber.textContent = numberSpace;
     cardNumberError.textContent = "Enter a valid number";
     cardNumberInput.classList.add("error");
     return false;
   }
 }
+//call the function in the input event
 cardNumberInput.addEventListener("input", validateNumber);
-function deleteSpaces() {
+/**
+ * delete spaces to validate number
+ * @returns (string) returns card number for the validation
+ */
+function numberSpaces() {
   const input = cardNumberInput.value;
   let value = input.replace(/\D/g, "").substring(0, 16);
   const groups = value.match(/[\s\S]{1,4}/g) || [];
   value = groups.join(" ");
   cardNumberInput.value = value;
-  console.log(value);
   return value;
 }
 
+/**
+ * validates the card month input field
+ * @returns (boolean) Returns true if the month if valid or false is not valid.
+ */
 function validateMonth() {
+  //Get the month from the monthSpaces function with correct format
   const month = monthSpaces();
+  //regex to validate month, only one or two numbers
   const regex = /^(0?[1-9]|1[0-2])$/;
+  //if the month input is empty display error and return false
   if (month === "") {
     cardDateError.textContent = "Expiration date is REQUIRED";
     cardMM.classList.add("error");
     return false;
-  } else if (!regex.test(month)) {
+  }
+  //if the month input is not valid, display error and return false
+  else if (!regex.test(month)) {
     cardImageMonth.textContent = month.padStart(2, "0");
     cardDateError.textContent = "Enter a valid date";
     cardMM.classList.add("error");
     return false;
-  } else {
+  }
+  //if the month input is valid, display month in the card and return true
+  else {
     cardImageMonth.textContent = month.padStart(2, "0");
     cardDateError.textContent = "";
     cardMM.value = month;
@@ -133,7 +181,12 @@ function validateMonth() {
     return true;
   }
 }
+//call the function in the input event
 cardMM.addEventListener("input", validateMonth);
+/**
+ * dalete spaces to validate month
+ * @returns (string) returns card month formated for the validation
+ */
 function monthSpaces() {
   let value = cardMM.value;
   value = value.replace(/\D/g, "");
@@ -141,19 +194,30 @@ function monthSpaces() {
   return value;
 }
 
+/**
+ * validates the year card input field
+ * @returns (boolean) returns true if the year is valid and false if it's not
+ */
 function validateYear() {
+  //Get year without spaces from yearSpaces()
   const year = yearSpaces();
+  //regex tod validate year, only two numbers
   const regex = /^\d{2}$/;
+  //if the year input is empty display error and return false
   if (year === "") {
     cardDateError.textContent = "Expiration date is REQUIRED";
     cardYY.classList.add("error");
     return false;
-  } else if (!regex.test(year)) {
+  }
+  //if the year input is not valid display error and return false
+  else if (!regex.test(year)) {
     cardImageYear.textContent = year;
     cardDateError.textContent = "Enter a valid date: 0X";
     cardYY.classList.add("error");
     return false;
-  } else {
+  }
+  //if the year input is valid, delete the error and return true
+  else {
     cardImageYear.textContent = year;
     cardDateError.textContent = "";
     cardYY.value = year;
@@ -161,7 +225,12 @@ function validateYear() {
     return true;
   }
 }
+//call the function in the input event
 cardYY.addEventListener("input", validateYear);
+/**
+ * delete spaces to validate year
+ * @returns (string) return year for validateYear
+ */
 function yearSpaces() {
   let value = cardYY.value;
   value = value.replace(/\D/g, "");
@@ -169,22 +238,33 @@ function yearSpaces() {
   return value;
 }
 
+/**
+ * validates the cvc input field
+ * @returns (boolean) Returns true if the cvc input is valid and false if it's not
+ */
 function validateCvc() {
+  //Get value without spaces from cvcSpaces()
   const code = cvcSpaces();
+  //regex to validate cvc, only three or four numbers
   const regex = /^\d{3,4}$/;
+  //if cvc input field is empty, display error and return false
   if (code === "") {
     cvc.value = code;
     cardImageCvc.textContent = code;
     cardCvcError.textContent = "CVC is REQUIRED";
     cvc.classList.add("error");
     return false;
-  } else if (!regex.test(code)) {
+  }
+  //if cvc input field is not valid, display error and return false
+  else if (!regex.test(code)) {
     cvc.value = code;
     cardImageCvc.textContent = code;
     cardCvcError.textContent = "Enter a valid CVC";
     cvc.classList.add("error");
     return false;
-  } else {
+  }
+  //if cvc input field is validate, delete error and return true
+  else {
     cvc.value = code;
     cardImageCvc.textContent = code;
     cardCvcError.textContent = "";
@@ -192,7 +272,12 @@ function validateCvc() {
     return true;
   }
 }
+//call the function with input event
 cvc.addEventListener("input", validateCvc);
+/**
+ * delete spaces to validte cvc
+ * @returns (string) returns cvc number for validation
+ */
 function cvcSpaces() {
   console.log(cvc);
   console.log(cardYY);
@@ -202,6 +287,10 @@ function cvcSpaces() {
   return value;
 }
 
+/**
+ * validate all form
+ * @returns (boolean) returns true if whole validation is correct and return false if it's not
+ */
 function formValidation() {
   const nameValidation = validateName();
   const numberValidation = validateNumber();

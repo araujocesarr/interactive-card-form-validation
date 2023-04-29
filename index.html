@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="icon"
@@ -11,10 +10,11 @@
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
-
+    <!--This is a credit card validation form-->
     <title>Frontend Mentor | Interactive card details form</title>
   </head>
   <body>
+    <!--Container with card's images-->
     <div class="top-container">
       <div class="front-card">
         <img src="images/bg-card-front.png" alt="Front card.html" />
@@ -31,6 +31,7 @@
       </div>
     </div>
 
+    <!--Container with complete status-->
     <div class="complete-container">
       <img
         class="img-complete"
@@ -43,6 +44,7 @@
       <button class="continue" type="submit">Continue</button>
     </div>
 
+    <!--Form with inputs to complete-->
     <form id="my-form">
       <div class="cardholder">
         <p class="cardholder-name">CARDHOLDER NAME</p>
@@ -81,7 +83,6 @@
           />
           <div class="error-message" id="error-date"></div>
         </div>
-
         <div class="cvc">
           <p>CVC</p>
           <input type="text" name="cvc" id="cvc" placeholder="e.g. 123" />
@@ -89,6 +90,7 @@
         </div>
       </div>
 
+      <!--Button for submit-->
       <button class="confirm" type="submit">Confirm</button>
       <div class="attribution">
         Challenge by
