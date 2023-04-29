@@ -161,23 +161,24 @@ function validateMonth() {
   const regex = /^(0?[1-9]|1[0-2])$/;
   //if the month input is empty display error and return false
   if (month === "") {
+    cardMM.value = month;
     cardDateError.textContent = "Expiration date is REQUIRED";
     cardMM.classList.add("error");
     return false;
   }
   //if the month input is not valid, display error and return false
   else if (!regex.test(month)) {
-    cardImageMonth.textContent = month.padStart(2, "0");
     cardMM.value = month;
+    cardImageMonth.textContent = month.padStart(2, "0");
     cardDateError.textContent = "Enter a valid date";
     cardMM.classList.add("error");
     return false;
   }
   //if the month input is valid, display month in the card and return true
   else {
+    cardMM.value = month;
     cardImageMonth.textContent = month.padStart(2, "0");
     cardDateError.textContent = "";
-    cardMM.value = month;
     cardMM.classList.remove("error");
     return true;
   }
@@ -190,6 +191,7 @@ cardMM.addEventListener("input", validateMonth);
  */
 function monthSpaces() {
   let value = cardMM.value;
+
   value = value.replace(/\D/g, "");
   value = value.slice(0, 2);
   return value;
@@ -206,6 +208,7 @@ function validateYear() {
   const regex = /^\d{2}$/;
   //if the year input is empty display error and return false
   if (year === "") {
+    cardYY.value = year;
     cardDateError.textContent = "Expiration date is REQUIRED";
     cardYY.classList.add("error");
     return false;

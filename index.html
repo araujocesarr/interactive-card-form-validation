@@ -62,6 +62,7 @@
         <p class="card-number">CARD NUMBER</p>
         <input
           type="text"
+          inputmode="numeric"
           name="card-number"
           id="card-number"
           placeholder="e.g. 1234 5678 9123 0000"
@@ -73,12 +74,14 @@
           <p>EXP. DATE (MM/YY)</p>
           <input
             type="text"
+            inputmode="numeric"
             name="exp-date-mm"
             id="exp-date-mm"
             placeholder="MM"
           />
           <input
             type="text"
+            inputmode="numeric"
             name="exp-date-yy"
             id="exp-date-yy"
             placeholder="YY"
@@ -87,7 +90,13 @@
         </div>
         <div class="cvc">
           <p>CVC</p>
-          <input type="text" name="cvc" id="cvc" placeholder="e.g. 123" />
+          <input
+            type="text"
+            inputmode="numeric"
+            name="cvc"
+            id="cvc"
+            placeholder="e.g. 123"
+          />
           <div class="error-message" id="error-cvc"></div>
         </div>
       </div>
