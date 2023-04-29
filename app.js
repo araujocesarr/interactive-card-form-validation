@@ -5,7 +5,6 @@ const cardImageYear = document.querySelector(".card-img-date-yy");
 const cardImageMonth = document.querySelector(".card-img-date-mm");
 const cardImageCvc = document.querySelector(".card-img-cvc");
 const cardNumberInput = document.getElementById("card-number");
-
 const cardMM = document.getElementById("exp-date-mm");
 const cardYY = document.getElementById("exp-date-yy");
 const cvc = document.getElementById("cvc");
@@ -16,41 +15,51 @@ const cardDateError = document.getElementById("error-date");
 const cardCvcError = document.getElementById("error-cvc");
 const form = document.querySelector("#my-form");
 const complete = document.querySelector(".complete-container");
-const body = document.querySelector("body");
-
-let validation = false;
-
-console.log(cardImageCvc);
-console.log(cardholderInput);
-console.log(cardNumberInput);
-console.log(cardMM);
-console.log(cardDateError);
-console.log(body);
 
 function validateName() {
   const name = cardholderInput.value.trim();
-  cardImageName.textContent = name;
-  const regex =
-    /^[A-Z\u00C0-\u017F][a-zA-Z\u00C0-\u017F]*(\s[A-Z\u00C0-\u017F][a-zA-Z\u00C0-\u017F]*){1,}$/;
+  const regex = /^([a-zA-Z\u00C0-\u017F'-]+\s)*[a-zA-Z\u00C0-\u017F'-]+$/;
   if (name === "") {
+    cardImageName.textContent = name;
     cardholderError.textContent = "Cardholder name is REQUIRED";
     cardholderInput.classList.add("error");
     return false;
   } else if (!regex.test(name)) {
+    cardImageName.textContent = name;
     cardholderError.textContent = "Enter a valid name";
     cardholderInput.classList.add("error");
     return false;
   } else {
+    cardImageName.textContent = name;
     cardholderError.textContent = "";
     cardholderInput.classList.remove("error");
     return true;
   }
 }
-cardholderInput.addEventListener("blur", validateName);
+cardholderInput.addEventListener("input", validateName);
+
+cardholderInput.addEventListener("input", (event) => {
+  const words = event.target.value.toLowerCase().split(" ");
+  const capitalizedWords = words.map((word) => {
+    let capitalizedWord = word.charAt(0).toUpperCase() + word.slice(1);
+    for (let i = 0; i < capitalizedWord.length - 1; i++) {
+      if (capitalizedWord[i] === "'" || capitalizedWord[i] === "-") {
+        capitalizedWord =
+          capitalizedWord.slice(0, i + 1) +
+          capitalizedWord[i + 1].toUpperCase() +
+          capitalizedWord.slice(i + 2);
+      }
+    }
+    return capitalizedWord;
+  });
+  event.target.value = capitalizedWords.join(" ");
+});
 
 function validateNumber() {
-  const number = cardNumberInput.value.trim();
-  cardImageNumber.textContent = number;
+  const numberSpaces = deleteSpaces();
+  console.log(numberSpaces);
+  const number = cardNumberInput.value.replace(/\s/g, "");
+  console.log(numberSpaces);
   const regex = {
     amexCard: /^3[47][0-9]{13}$/,
     bcGlobal: /^(6541|6556)[0-9]{12}$/,
@@ -75,86 +84,123 @@ function validateNumber() {
   };
   if (number === "") {
     cardNumberError.textContent = "Card number is REQUIRED";
+    cardImageNumber.textContent = numberSpaces;
     cardNumberInput.classList.add("error");
     return false;
   } else {
     for (let regexProp in regex) {
       if (regex[regexProp].test(number)) {
+        cardImageNumber.textContent = numberSpaces;
         cardNumberError.textContent = "";
         cardNumberInput.classList.remove("error");
         return true;
       }
     }
+    cardImageNumber.textContent = numberSpaces;
     cardNumberError.textContent = "Enter a valid number";
     cardNumberInput.classList.add("error");
     return false;
   }
 }
-cardNumberInput.addEventListener("blur", validateNumber);
+cardNumberInput.addEventListener("input", validateNumber);
+function deleteSpaces() {
+  const input = cardNumberInput.value;
+  let value = input.replace(/\D/g, "").substring(0, 16);
+  const groups = value.match(/[\s\S]{1,4}/g) || [];
+  value = groups.join(" ");
+  cardNumberInput.value = value;
+  console.log(value);
+  return value;
+}
 
 function validateMonth() {
-  const month = cardMM.value.trim();
-  cardImageMonth.textContent = month.padStart(2, "0");
+  const month = monthSpaces();
   const regex = /^(0?[1-9]|1[0-2])$/;
   if (month === "") {
     cardDateError.textContent = "Expiration date is REQUIRED";
     cardMM.classList.add("error");
     return false;
   } else if (!regex.test(month)) {
+    cardImageMonth.textContent = month.padStart(2, "0");
     cardDateError.textContent = "Enter a valid date";
     cardMM.classList.add("error");
     return false;
   } else {
+    cardImageMonth.textContent = month.padStart(2, "0");
     cardDateError.textContent = "";
-    cardMM.value = month.padStart(2, "0");
+    cardMM.value = month;
     cardMM.classList.remove("error");
     return true;
   }
 }
-cardMM.addEventListener("blur", validateMonth);
+cardMM.addEventListener("input", validateMonth);
+function monthSpaces() {
+  let value = cardMM.value;
+  value = value.replace(/\D/g, "");
+  value = value.slice(0, 2);
+  return value;
+}
 
 function validateYear() {
-  const year = cardYY.value.trim();
-  cardImageYear.textContent = year.padStart(2, "0");
+  const year = yearSpaces();
   const regex = /^\d{2}$/;
-
   if (year === "") {
     cardDateError.textContent = "Expiration date is REQUIRED";
     cardYY.classList.add("error");
     return false;
   } else if (!regex.test(year)) {
-    cardDateError.textContent = "Enter a valid date: XX";
+    cardImageYear.textContent = year;
+    cardDateError.textContent = "Enter a valid date: 0X";
     cardYY.classList.add("error");
     return false;
   } else {
+    cardImageYear.textContent = year;
     cardDateError.textContent = "";
-    cardYY.value = year.padStart(2, "0");
+    cardYY.value = year;
     cardYY.classList.remove("error");
     return true;
   }
 }
-cardYY.addEventListener("blur", validateYear);
+cardYY.addEventListener("input", validateYear);
+function yearSpaces() {
+  let value = cardYY.value;
+  value = value.replace(/\D/g, "");
+  value = value.slice(0, 2);
+  return value;
+}
 
 function validateCvc() {
-  const code = cvc.value.trim();
-  cardImageCvc.textContent = code;
+  const code = cvcSpaces();
   const regex = /^\d{3,4}$/;
-
   if (code === "") {
+    cvc.value = code;
+    cardImageCvc.textContent = code;
     cardCvcError.textContent = "CVC is REQUIRED";
     cvc.classList.add("error");
     return false;
   } else if (!regex.test(code)) {
+    cvc.value = code;
+    cardImageCvc.textContent = code;
     cardCvcError.textContent = "Enter a valid CVC";
     cvc.classList.add("error");
     return false;
   } else {
+    cvc.value = code;
+    cardImageCvc.textContent = code;
     cardCvcError.textContent = "";
     cvc.classList.remove("error");
     return true;
   }
 }
-cvc.addEventListener("blur", validateCvc);
+cvc.addEventListener("input", validateCvc);
+function cvcSpaces() {
+  console.log(cvc);
+  console.log(cardYY);
+  let value = cvc.value;
+  value = value.replace(/\D/g, "");
+  value = value.slice(0, 4);
+  return value;
+}
 
 function formValidation() {
   const nameValidation = validateName();
@@ -181,6 +227,7 @@ form.addEventListener("submit", (event) => {
 });
 
 complete.addEventListener("click", (event) => {
+  event.preventDefault();
   form.style.display = "flex";
   complete.style.display = "none";
   location.reload();

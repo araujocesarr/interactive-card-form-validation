@@ -8,6 +8,7 @@ $color-very-dark-violet: #22092f;
 $font-stack: "Space Grotesk";
 
 body {
+  overflow-x: hidden;
   font-family: $font-stack;
   letter-spacing: 2px;
   font-size: 18px;
