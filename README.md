@@ -10,6 +10,7 @@ This is a solution to the [Interactive card details form challenge on Frontend M
     - [The challenge](#the-challenge)
     - [Screenshots](#screenshots)
     - [Links](#links)
+  - [My process](#my-process)
     - [Built with](#built-with)
   - [Author](#author)
 
@@ -37,6 +38,12 @@ Desktop version
 Mobile version
 
 ### Links
+
+## My process
+
+In this project I put into practice my knowledge in semantic HTML5. In addition, I used SCSS to add styles to the website.
+The interaction of the website is implemented with JavaScript. Here, DOM manipulation was key for the form validation logic, as well as the use of regex for the validations of each field.
+The website is built with a mobile first approach. Thanks to this workflow, the project was built more efficiently.
 
 ### Built with
 
