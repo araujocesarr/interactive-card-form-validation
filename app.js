@@ -168,6 +168,7 @@ function validateMonth() {
   //if the month input is not valid, display error and return false
   else if (!regex.test(month)) {
     cardImageMonth.textContent = month.padStart(2, "0");
+    cardMM.value = month;
     cardDateError.textContent = "Enter a valid date";
     cardMM.classList.add("error");
     return false;
