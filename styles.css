@@ -36,6 +36,9 @@ body {
   left: 16px;
   top: 70px;
   text-decoration: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .top-container .front-card .card-img-name {
   text-transform: uppercase;
