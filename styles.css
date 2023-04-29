@@ -35,6 +35,7 @@ body {
   font-size: 1.15rem;
   left: 16px;
   top: 70px;
+  text-decoration: none;
 }
 .top-container .front-card .card-img-name {
   text-transform: uppercase;
