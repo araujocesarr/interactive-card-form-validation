@@ -74,9 +74,10 @@ body {
       position: absolute;
       left: 15px;
       top: 20px;
-      height: 30px;
-      width: 55px;
+      height: 40px;
+      width: 65px;
       z-index: 2;
+      border-color: $color-dark-violet;
     }
     img {
       height: 158px;

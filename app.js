@@ -18,6 +18,7 @@ const cardImageNumber = document.querySelector(".card-img-number");
 const cardImageYear = document.querySelector(".card-img-date-yy");
 const cardImageMonth = document.querySelector(".card-img-date-mm");
 const cardImageCvc = document.querySelector(".card-img-cvc");
+const cardImageLogo = document.getElementById("card-logo");
 
 //Errors
 const cardholderError = document.getElementById("error-cardholder");
@@ -94,14 +95,14 @@ function validateNumber() {
     amexCard: /^3[47][0-9]{13}$/,
     bcGlobal: /^(6541|6556)[0-9]{12}$/,
     carteBlancheCard: /^389[0-9]{11}$/,
-    dinnersClub: /^3(?:0[0-5]|[68][0-9])[0-9]{11}$/,
+    dinersClub: /^3(?:0[0-5]|[68][0-9])[0-9]{11}$/,
     discoverCard:
       /^65[4-9][0-9]{13}|64[4-9][0-9]{13}|6011[0-9]{12}|(622(?:12[6-9]|1[3-9][0-9]|[2-8][0-9][0-9]|9[01][0-9]|92[0-5])[0-9]{10})$/,
     instaPayment: /^63[7-9][0-9]{13}$/,
     jcbCard: /^(?:2131|1800|35\d{3})\d{11}$/,
     koreanLocalCard: /^9[0-9]{15}$/,
     laserCard: /^(6304|6706|6709|6771)[0-9]{12,15}$/,
-    maestroCard: /^(5018|5020|5038|6304|6759|6761|6763)[0-9]{8,15}$/,
+    maestroCard: /^(5018|5020|5038|5893|6304|6759|6761|6762|6763)[0-9]{8,15}$/,
     masterCard:
       /^(5[1-5][0-9]{14}|2(22[1-9][0-9]{12}|2[3-9][0-9]{13}|[3-6][0-9]{14}|7[0-1][0-9]{13}|720[0-9]{12}))$/,
     soloCard:
@@ -109,11 +110,22 @@ function validateNumber() {
     switchCard:
       /^(4903|4905|4911|4936|6333|6759)[0-9]{12}|(4903|4905|4911|4936|6333|6759)[0-9]{14}|(4903|4905|4911|4936|6333|6759)[0-9]{15}|564182[0-9]{10}|564182[0-9]{12}|564182[0-9]{13}|633110[0-9]{10}|633110[0-9]{12}|633110[0-9]{13}$/,
     unionPay: /^(62[0-9]{14,17})$/,
-    visaCard: /^4[0-9]{12}(?:[0-9]{3})?$/,
-    visaMaster: /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$/,
+    visa: /^4[0-9]{12}(?:[0-9]{3})?$/,
+    visa2: /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$/,
+  };
+  const cardImages = {
+    amexCard: "images/amexCard.svg",
+    dinersClub: "images/dinersClub.svg",
+    discoverCard: "images/discoverCard.svg",
+    jcbCard: "images/jcbCard.svg",
+    masterCard: "images/masterCard.svg",
+    visa: "images/visa.svg",
+    visa2: "images/visa.svg",
+    default: "images/card-logo.svg",
   };
   //if the number input is empty display error and return false
   if (number === "") {
+    cardImageLogo.setAttribute("src", cardImages.default);
     cardNumberError.textContent = "Card number is REQUIRED";
     cardImageNumber.textContent = numberSpace;
     cardNumberInput.classList.add("error");
@@ -123,12 +135,17 @@ function validateNumber() {
   else {
     for (let regexProp in regex) {
       if (regex[regexProp].test(number)) {
+        console.log(cardImages[regexProp]);
+        const imagePath = cardImages[regexProp] || cardImages.default;
+        console.log(imagePath);
+        cardImageLogo.setAttribute("src", imagePath);
         cardImageNumber.textContent = numberSpace;
         cardNumberError.textContent = "";
         cardNumberInput.classList.remove("error");
         return true;
       }
     }
+    cardImageLogo.setAttribute("src", cardImages.default);
     cardImageNumber.textContent = numberSpace;
     cardNumberError.textContent = "Enter a valid number";
     cardNumberInput.classList.add("error");
