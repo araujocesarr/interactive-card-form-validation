@@ -9,7 +9,7 @@ This is a solution to the [Interactive card details form challenge on Frontend M
   - [Overview](#overview)
     - [The challenge](#the-challenge)
     - [Screenshots](#screenshots)
-    - [Links](#links)
+  - [Website live](#website-live)
   - [My process](#my-process)
     - [Built with](#built-with)
   - [Author](#author)
@@ -37,7 +37,7 @@ Desktop version
 
 Mobile version
 
-### Links
+## [Website live](https://project-form-validation-frontend.vercel.app/)
 
 ## My process
 
@@ -56,6 +56,5 @@ The website is built with a mobile first approach. Thanks to this workflow, the 
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Frontend Mentor - [@araujocesarr](https://www.frontendmentor.io/profile/araujocesarr)
+- Email - [cesararaujo.perez@gmail.com](mailto:cesararaujo.perez@gmail.com)
