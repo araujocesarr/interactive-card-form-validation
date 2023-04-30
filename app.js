@@ -30,7 +30,7 @@ const cardCvcError = document.getElementById("error-cvc");
 const confirm = document.getElementsByClassName("confirm");
 const form = document.querySelector("#my-form");
 const complete = document.querySelector(".complete-container");
-
+const completeBtn = document.querySelector(".continue");
 /**
  * Validates the cardholder name input field
  * @returns (boolean) Returns true if the name is valid and false if it's not
@@ -336,9 +336,17 @@ form.addEventListener("submit", (event) => {
   }
 });
 
-complete.addEventListener("click", (event) => {
+completeBtn.addEventListener("click", (event) => {
   event.preventDefault();
   form.style.display = "flex";
   complete.style.display = "none";
   location.reload();
+});
+
+document.addEventListener("keydown", function (event) {
+  // Si se presiona la tecla Enter y el botón 'Continue' está visible
+  if (event.key === "Enter" && completeBtn.offsetParent !== null) {
+    // Dispara el evento 'click' en el botón 'Continue'
+    completeBtn.click();
+  }
 });
