@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
 html {
+  height: 100%;
   overflow-x: hidden;
 }
 
 body {
+  min-height: 100%;
   overflow-x: hidden;
   font-family: "Space Grotesk";
   letter-spacing: 2px;
@@ -103,13 +105,14 @@ body {
 
 .complete-container {
   display: none;
+  max-width: 400px;
   width: 85vw;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 25px;
-  margin-left: 7%;
-  margin-right: 10%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .complete-container .img-complete {
   margin-top: 10%;
@@ -358,13 +361,15 @@ body {
   #my-form {
     position: relative;
     top: -5vh;
-    left: 25vw;
+    left: 30%;
     max-width: 32%;
   }
   .complete-container {
     position: relative;
+    margin-left: 10%;
+    margin-right: 0;
     top: -5vh;
-    left: 50vw;
+    left: 750px;
     max-width: 32%;
   }
 }
@@ -372,7 +377,7 @@ body {
   .top-container .front-card {
     position: relative;
     top: 80%;
-    left: -10%;
+    left: 0;
   }
   .top-container .front-card img {
     height: 190%;
@@ -404,7 +409,7 @@ body {
   .complete-container {
     position: relative;
     top: -5vh;
-    left: 40vw;
+    left: 800px;
     max-width: 32%;
   }
 }/*# sourceMappingURL=styles.css.map */
